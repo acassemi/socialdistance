@@ -9,7 +9,7 @@ bot_token="your bot token"
 bot_email="botuser@botdomain.com"
 bot_tag='distancebot'
 # Meraki Parameters
-meraki_api_key="Meraki KEY here"
+api_key="25d71bd18a48e2066d747965f8771c0d6109a457"
 # influx address
 db_server="localhost"
 db_server_port=8086
