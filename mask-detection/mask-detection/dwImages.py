@@ -1,8 +1,14 @@
-import meraki, datetime, json, requests, os.path, shutil, time, threading, os
+import meraki, datetime, json, requests, os.path, shutil, time, threading, os, sys
+sys.path.append(os.path.abspath('..'))
 from config import *
+from config_shared import api_key
 from video import *
 from bdware import bd_update
 from os import path
+
+
+
+sys.path.append(os.path.abspath('../DB'))
 
 
 
@@ -58,7 +64,7 @@ class  getMerakiImage:
         dbTimeStamp = timeStamp
         myTime = datetime.datetime.strptime(timeStamp, "%Y-%m-%dT%H:%M:%S%z")
         myTime = datetime.datetime.strftime(myTime, "%Y-%m-%d-%H-%M-%S")
-        dashboard = meraki.DashboardAPI(suppress_logging=True)
+        dashboard = meraki.DashboardAPI(api_key=api_key ,suppress_logging=True)
         my_orgs = dashboard.organizations.getOrganizations()
         try:
             mySnap = dashboard.cameras.generateNetworkCameraSnapshot(network_id, mv_serial, timestamp=timeStamp )
